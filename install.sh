@@ -132,10 +132,11 @@ wslview assets/UbuntuMono-R.ttf
 
 if [ $wt = true ]; then
 
-# TODO: add default user detection:
 # echo "Getting default user for Ubuntu"
+
+# TODO: add default user detection:
 # defaultuser=$(wsl.exe -d "Ubuntu" --exec whoami)
-# need to check Ubuntu, Ubuntu-18.04, Ubuntu, Ubuntu-Insiders
+# need to check for Ubuntu, Ubuntu-18.04, Ubuntu, Ubuntu-Insiders, skipping if failure
 
 echo "Applying theme to Windows Terminal"
 
@@ -192,7 +193,7 @@ echo "Applying theme to Windows Terminal"
 \                "tabTitle": "Ubuntu 20.04 LTS",' $localappdata$wtpath$settings
 
 
-# TODO: add:
+# TODO:
 # fix escaping of '\\' in paths (is reduced to a single \)
 # \                "startingDirectory": "\\\\\\wsl$\\Ubuntu\\home\\$defaultuser", \
 
