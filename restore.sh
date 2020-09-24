@@ -14,6 +14,18 @@ else
   exit 0
 fi
 
+# Check if wslu is installed, required for wslvar
+# http://manpages.ubuntu.com/manpages/focal/en/man1/wslvar.1.html
+
+echo Checking to see if wslu is installed
+if [ $(dpkg-query -W -f='${Status}' wslu 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+  echo wslu not found, installing...
+  sudo apt update
+  sudo apt -y install wslu
+else
+  echo wslu found
+fi
+
 # Get %LOCALAPPDATA% variable from Windows and convert to Linux path
 
 localappdata=$(wslpath $(wslvar LOCALAPPDATA))
